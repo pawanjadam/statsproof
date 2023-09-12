@@ -9,18 +9,17 @@
       <a href="https://statsproof.com" target="_blank" class="footer-link fw-bolder">StatsProof</a>
     </div>
     <div>
-      <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
       <a
-        href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+        href="../privacy.php"
         target="_blank"
         class="footer-link me-4"
-        >Documentation</a
+        >Privacy Policy</a
       >
       <a
-        href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
+        href="../terms-of-use.php"
         target="_blank"
         class="footer-link me-4"
-        >Support</a
+        >Terms of use</a
       >
     </div>
   </div>

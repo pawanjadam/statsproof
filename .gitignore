@@ -1,3 +1,7 @@
+config.php
+client.json
+/dashboard/ini/connect.php
+
 # System Files
 .DS_Store
 .AppleDouble

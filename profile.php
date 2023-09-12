@@ -261,7 +261,7 @@ $videoStats = getVideoStats($videoids);
                 <li  class="nav-item lh-1 me-3">
                   <div>
                     <a href="#" class="btn btn-danger btn-buy-now" data-bs-toggle="modal"
-                          data-bs-target="#basicModal">
+                          data-bs-target="#collaborateModal">
                       Collaborate
                     </a>
                   </div>
@@ -272,11 +272,11 @@ $videoStats = getVideoStats($videoids);
             </div>
           </nav>
 <!-- Modal -->
-                        <div class="modal fade" id="basicModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal fade" id="collaborateModal" tabindex="-1" aria-hidden="true">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                                <h5 class="modal-title" id="exampleModalLabel1">We are working on it, please check back soon!!</h5>
                                 <button
                                   type="button"
                                   class="btn-close"
@@ -285,7 +285,8 @@ $videoStats = getVideoStats($videoids);
                                 ></button>
                               </div>
                               <div class="modal-body">
-                                <div class="row">
+                                <center>Thank you</center>
+                                <!-- <div class="row">
                                   <div class="col mb-3">
                                     <label for="nameBasic" class="form-label">Name</label>
                                     <input type="text" id="nameBasic" class="form-control" placeholder="Enter Name" />
@@ -300,13 +301,13 @@ $videoStats = getVideoStats($videoids);
                                     <label for="dobBasic" class="form-label">DOB</label>
                                     <input type="text" id="dobBasic" class="form-control" placeholder="DD / MM / YY" />
                                   </div>
-                                </div>
+                                </div> -->
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
                                   Close
                                 </button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
                               </div>
                             </div>
                           </div>
@@ -362,8 +363,10 @@ $videoStats = getVideoStats($videoids);
                               
 
                           <div class="row">
-
-                            <div class="col-6">
+                            <?php
+                            if(isset($topicDetails) && !empty($topicDetails)){
+                              ?>
+                              <div class="col-6">
                             <li class="d-flex mb-4 pb-1" title="Category">
                                 <div class="avatar flex-shrink-0 me-3">
                                   <span class="avatar-initial rounded bg-label-success"
@@ -394,6 +397,10 @@ $videoStats = getVideoStats($videoids);
                                 </div>
                               </li>
                             </div>
+                              <?php
+                            }
+                            ?>
+                            
 
                             <?php
                             if(isset($snippet['country'])){
@@ -1036,21 +1043,17 @@ $videoStats = getVideoStats($videoids);
                   <a href="https://statsproof.com" target="_blank" class="footer-link fw-bolder">StatsProof</a>
                 </div>
                 <div>
-                  <a href="https://statsproof.com/license/" class="footer-link me-4" target="_blank">License</a>
-                  <a href="https://statsproof.com/" target="_blank" class="footer-link me-4">Privacy Policy</a>
-
                   <a
-                    href="https://statsproof.com/"
+                    href="privacy.php"
                     target="_blank"
                     class="footer-link me-4"
-                    >Documentation</a
+                    >Privacy Policy</a
                   >
-
                   <a
-                    href="https://statsproof.com/"
+                    href="terms-of-use.php"
                     target="_blank"
                     class="footer-link me-4"
-                    >Support</a
+                    >Terms of use</a
                   >
                 </div>
               </div>
@@ -1092,10 +1095,10 @@ $videoStats = getVideoStats($videoids);
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script language="javascript">
     $(document).ready(function(){
-        // $.post("profileajax.php", {action:"getsocial", channel:'<?php echo $channel; ?>'}).done(function(data){
-        //   console.log(data);
-        //   $("#getsocial").html(data);
-        // });
+        $.post("profileajax.php", {action:"getsocial", channel:'<?php echo $channel; ?>'}).done(function(data){
+          console.log(data);
+          $("#getsocial").html(data);
+        });
     });
     </script>
 

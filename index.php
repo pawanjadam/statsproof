@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     
     <!--====== Title ======-->
-    <title>StatsProof - Data Consultancy Agency | Home</title>
+    <title>Home | StatsProof - Youtube Research</title>
     
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +47,7 @@
    
     <!--====== PRELOADER PART START ======-->
 
-    <div class="preloader">
+    <!-- <div class="preloader">
         <div class="loader">
             <div class="ytp-spinner">
                 <div class="ytp-spinner-container">
@@ -62,7 +62,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!--====== PRELOADER PART ENDS ======-->
     
@@ -74,7 +74,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar navbar-expand-lg">
-                            <a class="navbar-brand" href="index.html">
+                            <a class="navbar-brand" href="index.php">
                                 <img src="assetslp/images/logo.png" alt="Logo">
                             </a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,7 +108,7 @@
                             
                             <div class="navbar-btn d-sm-inline-block">
                                 <!-- <a class="main-btn" data-scroll-nav="0" href="#pricing">Download</a> -->
-                                <a class="main-btn" href="http://localhost/statsproof/login.php">Login</a>
+                                <a class="main-btn" href="login.php">Login</a>
                             </div>
                         </nav> <!-- navbar -->
                     </div>
@@ -121,7 +121,7 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="header-hero-content">
-                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Your</b> <span>Data</span> Partner for <b>Growth.</b></h1>
+                            <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Your</b> <span>Youtube</span> Data Research <b>Partner For Growth.</b></h1>
                             <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Phasellus vel elit efficitur, gravida libero sit amet, scelerisque  tortor arcu, commodo sit amet nulla sed.</p>
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                                 <input type="text" placeholder="username@yourdomain.com">
@@ -862,8 +862,7 @@
                                 <i class="lni-phone"></i>
                             </div>
                             <div class="contact-info-content media-body">
-                                <p class="text">+99 000 1111 555</p>
-                                <p class="text">+88 999 5555 444</p>
+                                <p class="text">+91 903 4423 375</p>
                             </div>
                         </div> <!-- single contact info -->
                     </div>
@@ -950,18 +949,21 @@
                             </ul>
                         </div> <!-- footer link -->
                     </div>
-                    <div class="col-lg-3 col-sm-6 order-sm-2 order-lg-4">
-                        <div class="footer-contact pt-40">
-                            <div class="footer-title">
-                                <h5 class="title">Contact Info</h5>
-                            </div>
-                            <div class="contact pt-10">
-                                <p class="text">21 King Street, Melbourne <br>
-                                    Victoria, 1202 Australia.</p>
-                                <p class="text">support@uideck.com</p>
-                                <p class="text">+99 000 555 66 22</p>
 
-                                <ul class="social mt-40">
+                    <div class="col-lg-3 col-sm-6 order-sm-2 order-lg-4">
+                        <div class="footer-link pt-40">
+                            <div class="footer-title">
+                                <h5 class="title">Important Links</h5>
+                            </div>
+                            <ul>
+                                <li><a href="privacy.php">Privacy Policy</a></li>
+                                <li><a href="terms-of-use.php">Terms of Use</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-contact pt-40">
+                            
+                            <div class="contact pt-10">
+                                <ul class="social mt-10">
                                     <li><a href="#"><i class="lni-facebook"></i></a></li>
                                     <li><a href="#"><i class="lni-twitter"></i></a></li>
                                     <li><a href="#"><i class="lni-instagram"></i></a></li>
@@ -973,7 +975,11 @@
                 </div> <!-- row -->
             </div> <!-- footer widget -->
             <div class="footer-copyright text-center">
-                <p class="text">© 2022 Crafted by <a href="https://uideck.com" rel="nofollow">UIdeck</a> All Rights Reserved.</p>
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>, made with ❤️ by 
+              <a href="https://statsproof.com" target="_blank" class="footer-link fw-bolder">StatsProof</a>. All Rights Reserved.
             </div>
         </div> <!-- container -->
     </footer>
