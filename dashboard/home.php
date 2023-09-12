@@ -1,13 +1,31 @@
 <?php
 session_start();
-// echo "<pre>";
-// print_r($_SESSION);
-// echo "</pre>";
-// die();
 if(!isset($_SESSION['isLoggedIn']) || $_SESSION['isLoggedIn'] == false){
   header('Location: ../login.php');
 }
 include('inc/connect.php');
+function get_client_ip() {
+    $ipaddress = '';
+    if (isset($_SERVER['HTTP_CLIENT_IP']))
+        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    else if(isset($_SERVER['HTTP_FORWARDED']))
+        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    else if(isset($_SERVER['REMOTE_ADDR']))
+        $ipaddress = $_SERVER['REMOTE_ADDR'];
+    else
+        $ipaddress = 'UNKNOWN';
+    return $ipaddress;
+}
+date_default_timezone_set("Asia/Calcutta");
+$date = date('Y-m-d H:i:s');
+$userip = get_client_ip();
+mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittime) VALUES(4, '$userip', '$date')");
 $element='home';
 function shortNumber($number){
     if($number>999999){
@@ -53,7 +71,7 @@ function shortNumber($number){
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="../assetslp/images/favicon.png" type="image/png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />

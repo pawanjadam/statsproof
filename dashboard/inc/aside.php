@@ -2,7 +2,8 @@
           <div class="app-brand demo">
             <a href="home.php" class="app-brand-link">
               <span class="app-brand-logo demo">
-                <svg
+                <img class="avatar avatar-online" src="../assetslp/images/favicon.png">
+                <!-- <svg
                   width="25"
                   viewBox="0 0 25 42"
                   version="1.1"
@@ -54,7 +55,7 @@
                       </g>
                     </g>
                   </g>
-                </svg>
+                </svg> -->
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">StatsProof</span>
             </a>

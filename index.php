@@ -1,3 +1,11 @@
+<?php
+date_default_timezone_set("Asia/Calcutta");
+$date = date('Y-m-d H:i:s');
+include('config.php');
+include('functions.php');
+$userip = get_client_ip();
+mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittime) VALUES(2, '$userip', '$date')");
+?>
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -5,7 +13,7 @@
     <meta charset="utf-8">
     
     <!--====== Title ======-->
-    <title>Home | StatsProof - Youtube Research</title>
+    <title>Home | StatsProof - Your Influencer Research Partner</title>
     
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">

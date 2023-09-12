@@ -6,19 +6,18 @@ if(isset($_GET['channel']) && $_GET['channel']!=''){
   echo "Please include channel id also like : ?channel=UCttspZesZIDEwwpVIgoZtWQ";
   exit;
 }
-
+date_default_timezone_set("Asia/Calcutta");   //India time (GMT+5:30)
+$date = date('Y-m-d H:i:s');
 include('config.php');
 include('functions.php');
+$userip = get_client_ip();
+mysqli_query($connect, "INSERT INTO statsproof.sitevisits(channel, page, userip, visittime) VALUES('$channel', 1, '$userip', '$date')");
 include('dataarray.php');
 $dateToday = date_create(date('Y-m-d'));
 
 $url = "https://www.googleapis.com/youtube/v3/channels?key=".$apikey."&id=".$channel."&part=brandingSettings,contentDetails,contentOwnerDetails,id,localizations,snippet,statistics,status,topicDetails";
 $html = json_decode(gethtml($url), true);
 
-// echo "<pre>";
-// print_r($html);
-// echo "</pre>";
-// die();
 if(isset($html['error']['errors'][0]['domain']) && $html['error']['errors'][0]['domain']=='youtube.quota'){
 	echo "Daily Limit Exceeded";
 	exit;
@@ -51,11 +50,6 @@ if(isset($brandingSettings['channel']['unsubscribedTrailer'])){
 
 $mostwatched = getMostWatchedVideoDetails($channel);
 
-// echo "<pre>";
-// print_r($brandingSettings);
-// die();
-
-
 $playlistId="UU".substr($channel, 2);
 $html = json_decode(gethtml("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&order=date&maxResults=30&playlistId=".$playlistId."&key=".$apikey), true);
 
@@ -64,17 +58,7 @@ foreach($html['items'] as $item){
   $videoId = $item['contentDetails']['videoId'];
   $videos[$videoId]['snippet'] = $item['snippet'];
 }
-
-
 $videoStats = getVideoStats($videoids);
-
-// echo "<pre>";
-// print_r($videoStats);
-// die();
-// echo "<pre>";
-// print_r($videoStats);
-// echo "</pre>";
-
 ?>
 <!DOCTYPE html>
 
@@ -105,12 +89,12 @@ $videoStats = getVideoStats($videoids);
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Profile | StatsProof</title>
+    <title>Profile | StatsProof - Your Influencer Research Partner</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/img/favicon/favicon.ico" />
+    <link rel="shortcut icon" href="assetslp/images/favicon.png" type="image/png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -170,8 +154,9 @@ $videoStats = getVideoStats($videoids);
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
+                    placeholder="Search Youtube..."
+                    aria-label="Search Youtube..."
+                    id="searchbox"
                   />
                 </div>
               </div>
@@ -513,7 +498,7 @@ $videoStats = getVideoStats($videoids);
                           <div class="align-items-center justify-content-between">
                           
                             <div class="flex-shrink-0" id="getsocial">
-                              Social Profiles Here
+                              Fetching Social Media Profiles...
                             </div>
                         
                           </div>
@@ -540,7 +525,7 @@ $videoStats = getVideoStats($videoids);
                           </div>
                           <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                             <div class="me-2">
-                              <h6 title="Latest video published date" class="mb-0">Latest video</h6>
+                              <h6 title="Latest video published date" style="color:#CD201F" class="mb-0">Latest video</h6>
                               <small class="text-muted"><?php
                               $publishedAt = date_create(date('Y-m-d', strtotime($videoStats['lastPublished'])));
                               $interval = date_diff($dateToday, $publishedAt);
@@ -1094,12 +1079,25 @@ $videoStats = getVideoStats($videoids);
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <script language="javascript">
-    $(document).ready(function(){
+      var searchbox = document.getElementById("searchbox");
+      searchbox.addEventListener("keydown", function (e) {
+          if (e.code === "Enter") {
+              //validate(e);
+              window.location = "dashboard/search.php";
+          }
+      });
+
+      $(document).ready(function(){
         $.post("profileajax.php", {action:"getsocial", channel:'<?php echo $channel; ?>'}).done(function(data){
           console.log(data);
-          $("#getsocial").html(data);
+          if(data==''){
+            $("#getsocial").html('No social media profiles found for this channel');
+          }else{
+            $("#getsocial").html(data);
+          }
+          
         });
-    });
+      });
     </script>
 
   </body>
