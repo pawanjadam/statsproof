@@ -1,5 +1,5 @@
 <?php
 
-echo "Blog here";
+echo "Blog coming here soon..";
 
 ?>

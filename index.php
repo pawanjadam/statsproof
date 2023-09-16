@@ -13,7 +13,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
     <meta charset="utf-8">
     
     <!--====== Title ======-->
-    <title>Home | StatsProof - Your Influencer Research Partner</title>
+    <title>Home | StatsProof - Your Youtube Data Research Partner</title>
     
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -130,10 +130,10 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                     <div class="col-lg-7">
                         <div class="header-hero-content">
                             <h1 class="hero-title wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.2s"><b>Your</b> <span>Youtube</span> Data Research <b>Partner For Growth.</b></h1>
-                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Phasellus vel elit efficitur, gravida libero sit amet, scelerisque  tortor arcu, commodo sit amet nulla sed.</p>
+                            <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">Join the free platform to boost your influencer research process backed by seven days a week metrics update.</p>
                             <div class="header-singup wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                                 <input type="text" placeholder="username@yourdomain.com">
-                                <button class="main-btn">Sign Up</button>
+                                <button class="main-btn"><a href="register.php" style="color:white">Sign Up</a></button>
                             </div>
                         </div> <!-- header hero content -->
                     </div>
@@ -157,7 +157,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                 <div class="col-lg-9">
                     <div class="about-title text-center wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
                         <h6 class="welcome">WELCOME</h6>
-                        <h3 class="title"><span>Our 7 years working experience to </span> take care of your business goal.</h3>
+                        <h3 class="title"><span>Our 9+ years of working experience to </span> take care of your business goal.</h3>
                     </div>
                 </div>
             </div> <!-- row -->
@@ -171,7 +171,8 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
             <div class="row justify-content-center">
                 <div class="col-lg-10">
                     <div class="about-content pt-45">
-                        <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">Duis et metus et massa tempus lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies, orci molestie blandit interdum. ipsum ante pellentesque nisl, eget mollis turpis quam nec eros. ultricies, orci molestie blandit interdum.</p>
+                        <p class="text wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.4s">
+                            With nearly a <b>decade</b> of expertise in <b>YouTube data research</b>, we have successfully collaborated with numerous clients on a wide array of projects, demonstrating our extensive experience and versatility in this field.</p>
                         
                         <div class="about-counter pt-60">
                             <div class="row">
@@ -242,15 +243,15 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                     <i class="lni-briefcase"></i> <span>Data <br> Consultancy</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a id="digital-tab" data-toggle="tab" href="#digital" role="tab" aria-controls="digital" aria-selected="false">
                                     <i class="lni-bullhorn"></i> <span>Digital <br> Marketing</span>
                                 </a>
-                            </li>
+                            </li> -->
 
                             <li class="nav-item">
                                 <a id="market-tab" data-toggle="tab" href="#market" role="tab" aria-controls="market" aria-selected="false">
-                                    <i class="lni-stats-up"></i> <span>Market <br> Analysis</span>
+                                    <i class="lni-stats-up"></i> <span>CRMs/Systems <br> Building</span>
                                 </a>
                             </li>
                         </ul>
@@ -265,7 +266,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                     <div class="col-lg-6">
                                         <div class="our-services-content mt-45">
                                             <h3 class="services-title">Data Consultancy <span>for Your Business Growth.</span></h3>
-                                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec est arcu. Maecenas semper tortor.  <br>  <br> In elementum in risus sed commodo. Phasellus nisi ligula, luctus at tempor vitae, placerat at ante. Cras sed consequat justo. Curabitur laoreet eu est vel convallis. </p>
+                                            <p class="text">We store data for millions of influencers and that data keeps on updating by itself to latest everyday.  <br>  <br> So, if you have any data needs, do let us know so that we can provide you with latest data under your desired category and other relevant statistics. </p>
                                             
                                             <div class="our-services-progress d-flex align-items-center mt-55">
                                                 <div class="circle" id="circles-1"></div>
@@ -278,12 +279,12 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                 </div> <!-- row -->
                             </div>
                             
-                            <div class="tab-pane fade" id="digital" role="tabpanel" aria-labelledby="digital-tab">
+                            <!-- <div class="tab-pane fade" id="digital" role="tabpanel" aria-labelledby="digital-tab">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="our-services-image mt-50">
                                             <img src="assetslp/images/our-service-1.jpg" alt="service">
-                                        </div> <!-- our services image -->
+                                        </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="our-services-content mt-45">
@@ -296,32 +297,32 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                                     <h4 class="progress-title">Digital Marketing <br> Skill.</h4>
                                                 </div>
                                             </div>
-                                        </div> <!-- our services content -->
+                                        </div>
                                     </div>
-                                </div> <!-- row -->
-                            </div>
+                                </div>
+                            </div> -->
                             
                             <div class="tab-pane fade" id="market" role="tabpanel" aria-labelledby="market-tab">
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="our-services-image mt-50">
                                             <img src="assetslp/images/our-service-1.jpg" alt="service">
-                                        </div> <!-- our services image -->
+                                        </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="our-services-content mt-45">
-                                            <h3 class="services-title">Market Analysis  <span>for Your Business Growth.</span></h3>
-                                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec est arcu. Maecenas semper tortor.  <br>  <br> In elementum in risus sed commodo. Phasellus nisi ligula, luctus at tempor vitae, placerat at ante. Cras sed consequat justo. Curabitur laoreet eu est vel convallis. </p>
+                                            <h3 class="services-title">CRMs and Systems  <span>for Your Business Growth.</span></h3>
+                                            <p class="text">We create CRMs for your team to increase the productivity enabling the ease to use the data and making the information avalibale at just clicks.  <br>  <br> Also the systems and processes to back the CRMs with latest data and store the data safely in a scalable way. </p>
                                             
                                             <div class="our-services-progress d-flex align-items-center mt-55">
-                                                <div class="circle" id="circles-3"></div>
+                                                <div class="circle" id="circles-2"></div>
                                                 <div class="progress-content">
-                                                    <h4 class="progress-title">Market Analysis <br> Agency Skill.</h4>
+                                                    <h4 class="progress-title">CRM and System <br> Skill.</h4>
                                                 </div>
                                             </div>
-                                        </div> <!-- our services content -->
+                                        </div>
                                     </div>
-                                </div> <!-- row -->
+                                </div>
                             </div>
                         </div> <!-- tab content -->
                     </div> <!-- our services tab -->
@@ -353,7 +354,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                             </div>
                             <div class="service-content media-body">
                                 <h4 class="service-title">Highly Experienced</h4>
-                                <p class="text">Lorem Ipsum is simply dummy tex of the printing and typesetting industry. Lorem Ipsum .</p>
+                                <p class="text">With total experience close to a <b>decade</b> and having worked with several clients. We are capable of fulfilling your every requirement of Youtube Influencers' data.</p>
                             </div>
                             <div class="shape shape-1">
                                 <img src="assetslp/images/shape/shape-1.svg" alt="shape">
@@ -370,7 +371,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                             </div>
                             <div class="service-content media-body">
                                 <h4 class="service-title">Bunch of Services</h4>
-                                <p class="text">Lorem Ipsum is simply dummy tex of the printing and typesetting industry. Lorem Ipsum .</p>
+                                <p class="text">Along with data, we are capable of building CRMs and scalable systems that keeps data updated every day.</p>
                             </div>
                             <div class="shape shape-3">
                                 <img src="assetslp/images/shape/shape-3.svg" alt="shape">
@@ -384,7 +385,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                             </div>
                             <div class="service-content media-body">
                                 <h4 class="service-title">Quality Support</h4>
-                                <p class="text">Lorem Ipsum is simply dummy tex of the printing and typesetting industry. Lorem Ipsum .</p>
+                                <p class="text">Working with several clients needs some quality standards to deliver Quality data and we have developed those standards over time.</p>
                             </div>
                             <div class="shape shape-4">
                                 <img src="assetslp/images/shape/shape-4.svg" alt="shape">
@@ -627,7 +628,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                             <li></li>
                             <li></li>
                         </ul>
-                        <p class="text">Duis et metus et massa tempus lacinia. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas ultricies, orci molestie blandit interdum. <br> <br> ipsum ante pellentesque nisl, eget mollis turpis quam nec eros. ultricies, orci molestie blandit interdum.</p>
+                        <p class="text">We pride ourselves on providing an exceptional service to our clients, but you don’t just have to take our word for it. Read what our clients have to say about working with us. <br> <br> </p>
                     </div> <!-- testimonial left content -->
                 </div>
                 <div class="col-lg-6">
@@ -638,33 +639,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                         <div class="testimonial-content-wrapper testimonial-active">
                             <div class="single-testimonial">
                                 <div class="testimonial-text">
-                                    <p class="text">“Praesent scelerisque, odio eu fermentum malesuada, nisi arcu volutpat nisl, sit amet convallis nunc turp.”</p>
-                                </div>
-                                <div class="testimonial-author d-sm-flex justify-content-between">
-                                    <div class="author-info d-flex align-items-center">
-                                        <div class="author-image">
-                                            <img src="assetslp/images/author-1.jpg" alt="author">
-                                        </div>
-                                        <div class="author-name media-body">
-                                            <h5 class="name">John Doe</h5>
-                                            <span class="sub-title">CEO, Alphabet</span>
-                                        </div>
-                                    </div>
-                                    <div class="author-review">
-                                        <ul class="star">
-                                            <li><i class="lni-star"></i></li>
-                                            <li><i class="lni-star"></i></li>
-                                            <li><i class="lni-star"></i></li>
-                                            <li><i class="lni-star"></i></li>
-                                            <li><i class="lni-star"></i></li>
-                                        </ul>
-                                        <span class="review">( 7 Reviews )</span>
-                                    </div>
-                                </div>
-                            </div> <!-- single testimonial -->
-                            <div class="single-testimonial">
-                                <div class="testimonial-text">
-                                    <p class="text">“Praesent scelerisque, odio eu fermentum malesuada, nisi arcu volutpat nisl, sit amet convallis nunc turp.”</p>
+                                    <p class="text">“Delivered as said, kudos.”</p>
                                 </div>
                                 <div class="testimonial-author d-sm-flex justify-content-between">
                                     <div class="author-info d-flex align-items-center">
@@ -673,7 +648,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                         </div>
                                         <div class="author-name media-body">
                                             <h5 class="name">John Doe</h5>
-                                            <span class="sub-title">CEO, Alphabet</span>
+                                            <span class="sub-title">CEO, InstaFluence</span>
                                         </div>
                                     </div>
                                     <div class="author-review">
@@ -684,13 +659,39 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                             <li><i class="lni-star"></i></li>
                                             <li><i class="lni-star"></i></li>
                                         </ul>
-                                        <span class="review">( 7 Reviews )</span>
+                                        <!-- <span class="review">( 7 Reviews )</span> -->
                                     </div>
                                 </div>
                             </div> <!-- single testimonial -->
                             <div class="single-testimonial">
                                 <div class="testimonial-text">
-                                    <p class="text">“Praesent scelerisque, odio eu fermentum malesuada, nisi arcu volutpat nisl, sit amet convallis nunc turp.”</p>
+                                    <p class="text">“It was really good working with Statsproof, their expertise in Youtube data helped us upscale our business.”</p>
+                                </div>
+                                <div class="testimonial-author d-sm-flex justify-content-between">
+                                    <div class="author-info d-flex align-items-center">
+                                        <div class="author-image">
+                                            <img src="assetslp/images/author-1.jpg" alt="author">
+                                        </div>
+                                        <div class="author-name media-body">
+                                            <h5 class="name">Emily</h5>
+                                            <span class="sub-title">User</span>
+                                        </div>
+                                    </div>
+                                    <div class="author-review">
+                                        <ul class="star">
+                                            <li><i class="lni-star"></i></li>
+                                            <li><i class="lni-star"></i></li>
+                                            <li><i class="lni-star"></i></li>
+                                            <li><i class="lni-star"></i></li>
+                                            <li><i class="lni-star"></i></li>
+                                        </ul>
+                                        <!-- <span class="review">( 7 Reviews )</span> -->
+                                    </div>
+                                </div>
+                            </div> <!-- single testimonial -->
+                            <div class="single-testimonial">
+                                <div class="testimonial-text">
+                                    <p class="text">“Quick delivery of requested data, wonderful job done!<br>Now my goto place for any kind of Youtube Data requirement”</p>
                                 </div>
                                 <div class="testimonial-author d-sm-flex justify-content-between">
                                     <div class="author-info d-flex align-items-center">
@@ -698,8 +699,8 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                             <img src="assetslp/images/author-3.jpg" alt="author">
                                         </div>
                                         <div class="author-name media-body">
-                                            <h5 class="name">John Doe</h5>
-                                            <span class="sub-title">CEO, Alphabet</span>
+                                            <h5 class="name">Prabhjot</h5>
+                                            <span class="sub-title">User</span>
                                         </div>
                                     </div>
                                     <div class="author-review">
@@ -710,7 +711,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                             <li><i class="lni-star"></i></li>
                                             <li><i class="lni-star"></i></li>
                                         </ul>
-                                        <span class="review">( 7 Reviews )</span>
+                                        <!-- <span class="review">( 7 Reviews )</span> -->
                                     </div>
                                 </div>
                             </div> <!-- single testimonial -->
@@ -769,17 +770,17 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.4s">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img src="assetslp/images/news-1.jpg" alt="news"></a>
+                            <a href="https://www.similarweb.com/blog/marketing/affiliate-marketing/finding-youtube-influencers"><img src="assetslp/images/news-1.jpg" alt="news"></a>
                         </div>
                         <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
+                            <h4 class="blog-title"><a href="https://www.similarweb.com/blog/marketing/affiliate-marketing/finding-youtube-influencers">9 Tried and Tested Ways to Find YouTube Influencers</a></h4>
                             <div class="blog-author d-flex align-items-center">
                                 <div class="author-image">
-                                    <img src="assetslp/images/author-1.jpg" alt="author">
+                                    <img src="assetslp/images/author-2.jpg" alt="author">
                                 </div>
                                 <div class="author-content media-body">
                                     <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Isabela Moreira</p>
+                                    <p class="text">Pawan</p>
                                 </div>
                             </div>
                         </div>
@@ -788,17 +789,17 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.7s">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img src="assetslp/images/news-2.jpg" alt="news"></a>
+                            <a href="https://www.mayple.com/blog/youtube-influencers"><img src="assetslp/images/news-2.jpg" alt="news"></a>
                         </div>
                         <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
+                            <h4 class="blog-title"><a href="https://www.mayple.com/blog/youtube-influencers">How to Work with YouTube Influencers in 2023</a></h4>
                             <div class="blog-author d-flex align-items-center">
                                 <div class="author-image">
                                     <img src="assetslp/images/author-2.jpg" alt="author">
                                 </div>
                                 <div class="author-content media-body">
                                     <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Elon Musk</p>
+                                    <p class="text">Pawan</p>
                                 </div>
                             </div>
                         </div>
@@ -807,17 +808,17 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                 <div class="col-lg-4 col-md-6 col-sm-8">
                     <div class="single-blog mt-30 wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="1s">
                         <div class="blog-image">
-                            <a href="blog-details.html"><img src="assetslp/images/news-3.jpg" alt="news"></a>
+                            <a href="https://grin.co/blog/the-ultimate-guide-to-youtube-influencer-marketing"><img src="assetslp/images/news-3.jpg" alt="news"></a>
                         </div>
                         <div class="blog-content">
-                            <h4 class="blog-title"><a href="blog-details.html">Nulla eget urna at tortor  turpi feugiat tristique in sit.</a></h4>
+                            <h4 class="blog-title"><a href="https://grin.co/blog/the-ultimate-guide-to-youtube-influencer-marketing">YouTube Influencer Marketing: A Complete Guide</a></h4>
                             <div class="blog-author d-flex align-items-center">
                                 <div class="author-image">
-                                    <img src="assetslp/images/author-3.jpg" alt="author">
+                                    <img src="assetslp/images/author-2.jpg" alt="author">
                                 </div>
                                 <div class="author-content media-body">
                                     <h6 class="sub-title">Posted by</h6>
-                                    <p class="text">Fiona</p>
+                                    <p class="text">Pawan</p>
                                 </div>
                             </div>
                         </div>
@@ -881,7 +882,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                     <div class="contact-wrapper-form pt-115  wow fadeInUpBig" data-wow-duration="1s" data-wow-delay="0.5s">
                         <h4 class="contact-title pb-10"><i class="lni-envelope"></i> Leave <span>A Message.</span></h4>
                         
-                        <form id="contact-form" action="assetslp/contact.php" method="post">
+                        <form id="contact-form" action="#" onsubmit="return false;" method="post">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="contact-form mt-45">
@@ -904,11 +905,16 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                                 <p class="form-message"></p>
                                 <div class="col-md-12">
                                     <div class="contact-form mt-45">
-                                        <button type="submit" class="main-btn">Send Now</button>
+                                        <button onclick="showformmessage()" class="main-btn">Send Now</button>
                                     </div> <!-- contact-form -->
                                 </div>
                             </div> <!-- row -->
                         </form>
+                        <script type="text/javascript">
+                            function showformmessage() {
+                                $('.form-message').html('Thank you, we will get back to you soon.');
+                            }
+                        </script>
                     </div> <!-- contact wrapper form -->
                 </div>
             </div> <!-- row -->
@@ -928,7 +934,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                             <a href="#">
                                 <img src="assetslp/images/logo.png" alt="Logo">
                             </a>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, repudiandae! Totam, nemo sed? Provident.</p> <p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus</p>
+                            <p class="text">With statistics of millions of Youtubers segregated by Category, Country and Language,</p> <p class="text">We take great pride in the system we have created for influencer researchers across the globe.</p>
                         </div> <!-- footer about -->
                     </div>
                     <div class="col-lg-3 col-sm-6 order-sm-3 order-lg-2">

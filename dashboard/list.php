@@ -35,7 +35,7 @@ $element='list';
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Lists | StatsProof</title>
+    <title>Lists | StatsProof - Your Youtube Data Research Partner</title>
 
     <meta name="description" content="" />
 
@@ -196,7 +196,7 @@ $element='list';
                               <a href="javascript:void(0);">
                                 <i class="bx bx-edit-alt me-1"></i>View
                               </a>
-                              <a style="margin-left: 25px;" href="javascript:void(0);">
+                              <a style="margin-left: 25px;" onclick="listDownload('<?php echo $listId;?>')" href="javascript:void(0);">
                                 <i class="bx bx-download me-1"></i>Download
                               </a>
                               <?php
@@ -253,6 +253,12 @@ $element='list';
                       alert('Something went wrong!');
                     }
                   });
+                }
+              }
+
+              function listDownload(listId){
+                if(listId>0){
+                  window.location = 'listdownload.php?listId='+listId;
                 }
               }
             </script>
