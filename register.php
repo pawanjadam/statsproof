@@ -82,15 +82,15 @@ include('oauth.php');
                   <span class="app-brand-logo demo">
                     <img src="assetslp/images/favicon.png">
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+                  <span class="app-brand-text demo text-body fw-bolder">StatsProof</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your app management easy and fun!</p>
+              <h4 class="mb-2">Start Influencer Research 🚀</h4>
+              <p class="mb-4">Your Youtube Data Research Partner For Growth!</p>
 
-              <form style="display:none" id="formAuthentication" class="mb-3" action="index.html" method="POST">
-                <div class="mb-3">
+              <form id="formRegister" class="mb-3" action="#">
+                <!-- <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input
                     type="text"
@@ -100,7 +100,7 @@ include('oauth.php');
                     placeholder="Enter your username"
                     autofocus
                   />
-                </div>
+                </div> -->
                 <div class="mb-3">
                   <label for="email" class="form-label">Email</label>
                   <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email" />
@@ -120,16 +120,33 @@ include('oauth.php');
                   </div>
                 </div>
 
+                <div class="mb-3 form-password-toggle">
+                  <label class="form-label" for="password">Repeat Password</label>
+                  <div class="input-group input-group-merge">
+                    <input
+                      type="password"
+                      id="repeatpassword"
+                      class="form-control"
+                      name="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
+                </div>
+                <div id="error" style="color:red">
+                </div>
+
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms"/>
                     <label class="form-check-label" for="terms-conditions">
                       I agree to
                       <a href="javascript:void(0);">privacy policy & terms</a>
                     </label>
                   </div>
                 </div>
-                <button class="btn btn-primary d-grid w-100">Sign up</button>
+                <button onclick="registerUser()" class="btn btn-primary d-grid w-100">Sign up</button>
               </form>
 
               <div class="mb-3">
@@ -150,6 +167,47 @@ include('oauth.php');
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      function registerUser(){
+        document.getElementById("formRegister").addEventListener("submit", function(event){
+          event.preventDefault()
+        });
+        $("#error").html('');
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var repeatpassword = $("#repeatpassword").val();
+        var validRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if(email=='' || typeof(email)=='undefined' || !email.match(validRegex)){
+          $("#error").html('Please enter valid email');
+          return false;
+        }
+        if(password=='' || typeof(password)=='undefined'){
+          $("#error").html('Password can not be empty');
+          return false;
+        }
+        if(password.length<6){
+          $("#error").html('Password must be atleast six characters');
+          return false;
+        }
+        if(repeatpassword!=password){
+          $("#error").html('Repeat password do not match');
+          return false;
+        }
+        $.post("dashboard/ajaxregister.php", {action:"register", email:email, password:password}).done(function(data){
+          if(data==1){
+            $("#error").html('Registered successfully');
+            window.location.replace("dashboard/home.php");
+            return false;
+          }else if(data==2){
+            $("#error").html('Email is already registered');
+            return false;
+          }else{
+            $("#error").html('Something went wrong');
+            return false;
+          }
+        });
+      }
+    </script>
 
     <!-- / Content -->
 

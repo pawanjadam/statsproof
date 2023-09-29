@@ -96,6 +96,8 @@ function shortNumber($number){
 
     <!-- Page CSS -->
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
 
@@ -115,11 +117,160 @@ function shortNumber($number){
 
         <!-- Layout container -->
         <div class="layout-page">
+
           <!-- Navbar -->
-
           <?php include('inc/navbar.php');?>
-
           <!-- / Navbar -->
+
+          <!-- First Modal -->
+            <div class="modal fade" id="firstModal" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Welcome<?=$_SESSION['user']['first_name']?' '.$_SESSION['user']['first_name']:'';?>! 🎉</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="mb-3">Please provide some basic information so that we can personalize your experience.
+                    </div>
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="nameWithTitle" class="form-label">Full Name</label>
+                        <input
+                          type="text"
+                          id="nameWithTitle"
+                          class="form-control"
+                          placeholder="John Fitzgerald Kennedy"
+                          value="<?=$_SESSION['user']['first_name']?$_SESSION['user']['first_name'].' '.$_SESSION['user']['last_name']:'';?>"
+                        />
+                      </div>
+                      <div class="col">
+                        <label for="contactEmail" class="form-label">Contact Email</label>
+                        <input
+                          type="text"
+                          id="contactEmail"
+                          class="form-control"
+                          placeholder="john@jacob.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="country" class="form-label">Country</label>
+                        <select id="country" class="form-select" onchange="getcities(this.value)">
+                          <option value="">Select country</option>
+                          <?php
+                          $select = mysqli_query($connect, "SELECT country, countrycode from world group by countrycode order by country");
+                          while($row = mysqli_fetch_assoc($select)){
+                            ?>
+                            <option value="<?=$row['countrycode'];?>"><?=ucfirst($row['country']);?></option>
+                            <?php
+                          }
+                          ?>
+                        </select>
+                      </div>
+                      <div class="col">
+                        <label for="city" class="form-label">City</label>
+                        <select id="city" class="form-select">
+                          <option value="">Select country first</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div style="color:red" id="firstModalError"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" onclick="savefirstmodal()" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- First Modal End -->
+
+          <!-- Second Modal -->
+            <div class="modal fade" id="secondModal" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="modalCenterTitle">Some Product details! 🎉</h5>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body">
+
+                    <div class="row mb-3">
+                      <div class="col">
+                        <label for="productName" class="form-label">Your Product Name</label>
+                        <input
+                          type="text"
+                          id="productName"
+                          class="form-control"
+                          placeholder="General Motors"
+                          value=""
+                        />
+                      </div>
+                      <div class="col">
+                        <label for="website" class="form-label">Product Website</label>
+                        <input
+                          type="website"
+                          id="website"
+                          class="form-control"
+                          placeholder="www.gm.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col mb-3">
+                        <label for="category" class="form-label">Product Category</label>
+                        <select id="category" class="form-select">
+                          <option value="">Select your Product category</option>
+                          <?php
+                          $select = mysqli_query($connect, "SELECT * FROM topics");
+                          while($row = mysqli_fetch_assoc($select)){
+                            $categories[] = $row;
+                            ?>
+                            <option value="<?=$row['topicId'];?>"><?=$row['topic'];?></option>
+                            <?php
+                          }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col">
+                        <label for="niche" class="form-label">Categories of Influencers you want to see (Upto five)</label>
+                        <select id="niche" class="form-select" multiple>
+                          <option value="">Can select upto five categories</option>
+                          <?php
+                          foreach($categories as $category){
+                            ?>
+                            <option value="<?=$category['topicId'];?>"><?=$category['topic'];?></option>
+                            <?php
+                            }
+                          ?>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="mt-4" style="color:red" id="secondModalError"></div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" onclick="savesecondmodal()" class="btn btn-primary">Finish</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- Second Modal End -->
 
           <!-- Content wrapper -->
           <div class="content-wrapper">
@@ -132,7 +283,7 @@ function shortNumber($number){
                     <div class="d-flex align-items-end row">
                       <div class="col-sm-7">
                         <div class="card-body">
-                          <h5 class="card-title text-primary">WelCome! 🎉</h5>
+                          <h5 class="card-title text-primary">WelCome<?=$_SESSION['user']['first_name']?' '.$_SESSION['user']['first_name']:'';?>! 🎉</h5>
                           <p class="mb-4">
                             We have added <span class="fw-bold">6,258</span> new channels today.
                             <br>Search now.
@@ -242,8 +393,6 @@ function shortNumber($number){
                                 </div>
                               </div>
                             </li>
-                          
-                      
                         <?php
                         if($count%4==0){
                           ?>
@@ -359,6 +508,116 @@ function shortNumber($number){
     </div>
     <!-- / Layout wrapper -->
 
+    <script type="text/javascript">
+      $(document).ready(function() {
+        var last_valid_selection = null;
+        $('#niche').change(function(event) {
+          $("#secondModalError").html('');
+          if ($(this).val().length > 5) {
+            $("#secondModalError").html('You can choose upto five categories only');
+            $(this).val(last_valid_selection);
+          } else {
+            last_valid_selection = $(this).val();
+          }
+        });
+      });
+
+      function getcities(countrycode){
+        $.post("ajaxaccount.php", {action:"getcities", countrycode:countrycode}).done(function(data){
+          $("#city").html(data);
+        });
+      }
+
+      function savefirstmodal(){
+        $("#firstModalError").html('');
+        var name = $("#nameWithTitle").val();
+        if(name=='' || typeof(name)=='undefined' || name.length<3){
+          $("#firstModalError").html('Please enter a real name');
+          $("#nameWithTitle").focus();
+          return false;
+        }
+        var contactemail = $("#contactEmail").val();
+        var validRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if(contactemail=='' || typeof(contactemail)=='undefined' || !contactemail.match(validRegex)){
+          $("#firstModalError").html('Please enter a valid contact email');
+          $("#contactEmail").focus();
+          return false;
+        }
+        var country = $("#country").val();
+        if(country=='' || typeof(country)=='undefined'){
+          $("#firstModalError").html('Please select your country');
+          $("#country").focus();
+          return false;
+        }
+        var city = $("#city").val();
+        if(city=='' || typeof(city)=='undefined'){
+          $("#firstModalError").html('Please choose your city');
+          $("#city").focus();
+          return false;
+        }
+        
+        $.post("ajaxaccount.php", {action:"savefirstmodal", name:name, contactemail:contactemail, country:country, city:city}).done(function(data){
+          if(data==1){
+            $("#firstModal").modal('hide');
+            $("#secondModal").modal('show');
+          }else{
+            $("#firstModalError").html('Something went wrong, please try again');
+          }
+        });
+      }
+
+      function savesecondmodal(){
+        $("#secondModalError").html('');
+        
+        var productName = $("#productName").val();
+        if(productName=='' || typeof(productName)=='undefined'){
+          $("#secondModalError").html('Please enter Product Name');
+          $("#productName").focus();
+          return false;
+        }
+        
+        var website = $("#website").val();
+        var websiteRegex = /^(http[s]?:\/\/(www\.)?|ftp:\/\/(www\.)?|www\.){1}([0-9A-Za-z-\.@:%_\+~#=]+)+((\.[a-zA-Z]{2,3})+)(\/(.)*)?(\?(.)*)?/g;
+        if(website=='' || typeof(website)=='undefined' || !website.match(websiteRegex)){
+          $("#secondModalError").html('Please enter a valid product website');
+          $("#website").focus();
+          return false;
+        }
+        var category = $("#category").val();
+        if(category=='' || typeof(category)=='undefined'){
+          $("#secondModalError").html('Please select Product category');
+          $("#category").focus();
+          return false;
+        }
+        var niche = document.getElementById("niche");
+        var selectedNiche = [];
+        for (var i = 0; i < niche.length; i++) {
+            if (niche.options[i].selected) selectedNiche.push(niche.options[i].value);
+        }
+        if(selectedNiche.length==0){
+          $("#secondModalError").html('Please choose Influencer categories');
+          $("#niche").focus();
+          return false;
+        }
+        $.post("ajaxaccount.php", {action:"savesecondmodal", productName:productName, website:website, category:category, niche:selectedNiche}).done(function(data){
+          if(data==1){
+            $("#secondModal").modal('hide');
+          }else{
+            $("#secondModalError").html('Something went wrong, please try again');
+          }
+        });
+      }
+
+      $(window).load(function(){
+        var basicInfo = '<?=$_SESSION['user']['basicInfo'];?>'
+        if(basicInfo==0){
+          $("#firstModal").modal('show');
+        }else if(basicInfo==1){
+          $("#secondModal").modal('show');
+        }
+      });
+    </script>
+      
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="../assets/vendor/libs/jquery/jquery.js"></script>

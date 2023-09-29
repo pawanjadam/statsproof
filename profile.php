@@ -1,5 +1,5 @@
 <?php
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 if(isset($_GET['channel']) && $_GET['channel']!=''){
 	$channel = $_GET['channel'];
 }else{

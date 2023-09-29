@@ -97,7 +97,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
               <h4 class="mb-2">Welcome to StatsProof! 👋</h4>
               <p class="mb-4">Please sign-in to start your Influencers research journey.</p>
 
-              <form style="display:none" id="formAuthentication" class="mb-3" action="index.html" method="POST">
+              <form id="formLogin" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email or Username</label>
                   <input
@@ -128,6 +128,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
                 </div>
+                <div id="error" style="color:red"></div>
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember-me" />
@@ -136,7 +137,7 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
                 </div>
                 <div class="mb-3">
                   <a href="dashboard/home.php">
-                    <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
+                    <button onclick="login()" class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                   </a>
                 </div>
                 
@@ -161,6 +162,46 @@ mysqli_query($connect, "INSERT INTO statsproof.sitevisits(page, userip, visittim
         </div>
       </div>
     </div>
+
+        <script type="text/javascript">
+        function login(){
+          document.getElementById("formLogin").addEventListener("submit", function(event){
+            event.preventDefault()
+          });
+        $("#error").html('');
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var validRegex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if(email=='' || typeof(email)=='undefined' || !email.match(validRegex)){
+          $("#error").html('Please enter valid email');
+          return false;
+        }
+        if(password=='' || typeof(password)=='undefined'){
+          $("#error").html('Password can not be empty');
+          return false;
+        }
+        if(password.length<6){
+          $("#error").html('Password must be atleast six characters');
+          return false;
+        }
+        $.post("dashboard/ajaxlogin.php", {action:"login", email:email, password:password}).done(function(data){
+          if(data==1){
+            $("#error").html('Login successful');
+            window.location.replace("dashboard/home.php");
+            return false;
+          }else if(data==2){
+            $("#error").html('This email is not registered');
+            return false;
+          }else if(data==3){
+            $("#error").html('Incorrect Password');
+            return false;
+          }else{
+            $("#error").html('Something went wrong');
+            return false;
+          }
+        });
+      }
+    </script>
 
     <!-- / Content -->
 

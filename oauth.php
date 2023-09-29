@@ -42,7 +42,7 @@ if(isset($_GET['code'])){
 	  			$_SESSION['isLoggedIn'] = true;
 	  		//}
 	  	}else{
-	  		$insert = mysqli_query($connect, "INSERT INTO users(oauth_uid, first_name, last_name, email, gender, picture, oauth_provider, created) VALUES('$id', '$firstName', '$lastName', '$email', '$gender', '$picture', '$oauth_provider', NOW())");
+	  		$insert = mysqli_query($connect, "INSERT INTO users(oauth_provider, oauth_uid, first_name, last_name, email, gender, picture, oauth_provider, created) VALUES('google', '$id', '$firstName', '$lastName', '$email', '$gender', '$picture', '$oauth_provider', NOW())");
 	  		if($insert){
 	  			$userId = mysqli_insert_id($connect);
 	  			mysqli_query($connect, "INSERT INTO lists(userId, listName, listDescription, isDefault, createdAt) VALUES('$userId', 'Favourites', 'Default Favourite List', '1', NOW()), ('$userId', 'Hidden', 'Default Hidden List', '1', NOW())");
@@ -52,13 +52,7 @@ if(isset($_GET['code'])){
 	  			$_SESSION['isLoggedIn'] = true;
 	  		}
 	  	}
-
-	  	header('Location: ' . filter_var($dashboardPageURL, FILTER_SANITIZE_URL)); 
-
-		// $youtube = new Google_Service_Youtube($client);
-		// $response = $youtube->channels->listChannels('snippet', ['mine'=>true]);
-		// echo "<pre>";
-		// print_r($response);
+	  	header('Location: ' . filter_var($dashboardPageURL, FILTER_SANITIZE_URL));
 	}
 }
 if(!isset($_SESSION['access_token'])){

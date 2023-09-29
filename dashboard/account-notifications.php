@@ -108,11 +108,11 @@ $element='notification';
                         ><i class="bx bx-bell me-1"></i> Notifications</a
                       >
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                       <a class="nav-link" href="account-connections.php"
                         ><i class="bx bx-link-alt me-1"></i> Connections</a
                       >
-                    </li>
+                    </li> -->
                   </ul>
                   <div class="card">
                     <!-- Notifications -->
