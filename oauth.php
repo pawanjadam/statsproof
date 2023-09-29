@@ -22,27 +22,15 @@ if(isset($_GET['code'])){
 	   	$gender= !empty($user['gender'])? $user['gender']:''; 
 	   	$picture= !empty($user['picture'])? $user['picture']:''; 
 	   	$oauth_provider = 'google';
-	    $data = [
-	    	'oauth_uid'  => $id,
-	     	'first_name' => $firstName,
-	     	'last_name'  => $lastName,
-	     	'email'      => $email,
-	     	'gender'     => $gender,
-	     	'picture'    => $picture,
-	     	'oauth_provider'=>$oauth_provider
-	  	];
 
 	  	$select = mysqli_query($connect, "SELECT * from users where oauth_uid='$id'");
 	  	if(mysqli_num_rows($select)>0){
-	  		//$update = mysqli_query($connect, "UPDATE users set first_name='$firstName', last_name='$lastName', email='$email', gender='$gender', picture='$picture', oauth_provider='google' where oauth_uid='$id'");
-	  		//if($update){
-	  			$select = mysqli_query($connect, "SELECT * from users where oauth_uid='$id'");
-	  			$row = mysqli_fetch_assoc($select);
-	  			$_SESSION['user'] = $row;
-	  			$_SESSION['isLoggedIn'] = true;
-	  		//}
+  			$select = mysqli_query($connect, "SELECT * from users where oauth_uid='$id'");
+  			$row = mysqli_fetch_assoc($select);
+  			$_SESSION['user'] = $row;
+  			$_SESSION['isLoggedIn'] = true;
 	  	}else{
-	  		$insert = mysqli_query($connect, "INSERT INTO users(oauth_provider, oauth_uid, first_name, last_name, email, gender, picture, oauth_provider, created) VALUES('google', '$id', '$firstName', '$lastName', '$email', '$gender', '$picture', '$oauth_provider', NOW())");
+	  		$insert = mysqli_query($connect, "INSERT INTO users(oauth_provider, oauth_uid, first_name, last_name, email, gender, picture, created) VALUES('$oauth_provider', '$id', '$firstName', '$lastName', '$email', '$gender', '$picture', NOW())");
 	  		if($insert){
 	  			$userId = mysqli_insert_id($connect);
 	  			mysqli_query($connect, "INSERT INTO lists(userId, listName, listDescription, isDefault, createdAt) VALUES('$userId', 'Favourites', 'Default Favourite List', '1', NOW()), ('$userId', 'Hidden', 'Default Hidden List', '1', NOW())");
