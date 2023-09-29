@@ -63,7 +63,7 @@ $element='setting';
 
     <!-- Page CSS -->
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
